@@ -155,7 +155,7 @@
 <script>
   import axios from 'axios'
 
-  const contactsUrl = process.env.REST_APP_URL + 'contacts'
+  const contactsUrl = process.env.VUE_APP_URL + 'contacts'
 
   export default {
     name: 'Contacts',
@@ -259,7 +259,6 @@
             Object.assign(this.contacts[this.editedIndex], res.data)
           } else {
             const res = await axios.post(contactsUrl, this.editedItem, {withCredentials: true})
-            console.log(res.data)
             this.contacts.push(res.data)
           }
           this.close()
